@@ -27,7 +27,10 @@ public class AdventureGame {
             System.out.println("Awesome sauce! Here is your first challenge!");
             //entering betsy stats
             System.out.println("Betsy the Spider\n");
-            int attackPoints = 8;
+            int min = 1;
+            int max = 12;
+            int range = max - min + 1;
+            int attackPoints = (int)(Math.random() * range) + min;
             int betsyHp = 50;
             System.out.println("Betsy's attack is " + attackPoints + ".\n");
             System.out.println("Betsy's Hitpoints are " + betsyHp + ".\n");
@@ -35,7 +38,7 @@ public class AdventureGame {
                     "your father smelt of elderberries!\n");
             System.out.println("Prepare for Battle!!!");
 
-            int heroAtk = 10;
+            int heroAtk = (int)(Math.random() * range) + min;;
             int heroHp = 100;
             int potions = 3;
             int potionIncrease = 20;
@@ -44,10 +47,6 @@ public class AdventureGame {
             System.out.println("You have " + potions + " potions\n");
             battleSystem(heroAtk, heroHp, potions, potionIncrease, attackPoints, betsyHp);
             System.out.println("Would you like to play again?");
-            System.out.println("Would you like to play again?");
-
-
-
 
 
 
