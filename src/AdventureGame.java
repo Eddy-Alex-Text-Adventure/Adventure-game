@@ -20,7 +20,6 @@ public class AdventureGame {
                 "                                                                                                                                                                                            ");
         Scanner scan = new Scanner(System.in);
         String charName = scan.nextLine();
-//        System.out.println("charName = " + charName);
         System.out.println("Would you like to go on an adventure " + charName + "?");
         String yesOrNo = scan.nextLine();
 
