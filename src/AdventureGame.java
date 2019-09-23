@@ -31,6 +31,9 @@ public class AdventureGame {
                     + heroAtk + " damage! BOOYAH!");
             System.out.println("You have " + potions + " potions\n");
             battleSystem(heroAtk, heroHp, potions, potionIncrease, attackPoints, betsyHp);
+            System.out.println("Would you like to play again?");
+            System.out.println("Would you like to play again?");
+
 
 
 
@@ -41,7 +44,7 @@ public class AdventureGame {
         }
      }
 
-     public static void battleSystem(int attack,int myHp, int potion,int potionInc, int atkPoints ){
+     public static void battleSystem(int attack,int myHp, int potion,int potionInc, int atkPoints, int betsyHp ){
         Scanner scan = new Scanner(System.in);
 //         int attackPoints = 8;
 //         int betsyHp = 50;
@@ -55,26 +58,27 @@ public class AdventureGame {
                  "3.Run for your life!!!\n");
          String playerOption = scan.nextLine();
 
-         while(myHp >= 0){
+         while(betsyHp > 0){
              if(playerOption.equalsIgnoreCase("1")){
                  betsyHp = betsyHp - attack;
-                 System.out.println("You did " + atkPoints + " damage!, Bestsy Health is at " + betsyHp);
-                 battleSystem();
+                 System.out.println("You did " + atkPoints + " damage!, Bestsy Health is at " + betsyHp +"\n");
+                 battleSystem(attack,myHp,potion,potionInc,atkPoints,betsyHp);
 
              } else if(playerOption.equalsIgnoreCase("2")){
                  potion = potion - 1;
-                 System.out.println("You drank a potion and gained" + potionInc + " health , you have " + potion + "left");
+                 System.out.println("You drank a potion and gained" + potionInc + " health , you have " + potion + "left\n");
                  myHp = myHp + potionInc;
                  System.out.println("Hero HP is at " + myHp);
-                 battleSystem();
+                 battleSystem(attack,myHp,potion,potionInc,atkPoints,betsyHp);
              } else if(playerOption.equalsIgnoreCase("3")){
-                 System.out.println("You can't run!");
-                 battleSystem();
+                 System.out.println("You can't run!\n");
+                 battleSystem(attack,myHp,potion,potionInc,atkPoints,betsyHp);
              } else{
-                 System.out.println("Not a valid response try again");
-                 battleSystem();
+                 System.out.println("Not a valid response try again\n");
+                 battleSystem(attack,myHp,potion,potionInc,atkPoints,betsyHp);
              }
          }
+
      }
 
 
