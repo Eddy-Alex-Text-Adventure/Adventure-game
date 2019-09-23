@@ -46,12 +46,7 @@ public class AdventureGame {
 
      public static void battleSystem(int attack,int myHp, int potion,int potionInc, int atkPoints, int betsyHp ){
         Scanner scan = new Scanner(System.in);
-//         int attackPoints = 8;
-//         int betsyHp = 50;
-//         int heroAtk = 10;
-//         int heroHp = 100;
-//         int potions = 3;
-//         int potionIncrease = 20;
+//
          System.out.println("What would you like to do?\n" +
                  "1.Hit him with the stick\n" +
                  "2.Drink the magic Elixir\n" +
@@ -77,6 +72,7 @@ public class AdventureGame {
                  System.out.println("Not a valid response try again\n");
                  battleSystem(attack,myHp,potion,potionInc,atkPoints,betsyHp);
              }
+
          }
 
      }
