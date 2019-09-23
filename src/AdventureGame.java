@@ -20,7 +20,7 @@ public class AdventureGame {
                 "                                                                                                                                                                                            ");
         Scanner scan = new Scanner(System.in);
         String charName = scan.nextLine();
-        System.out.println("Would you like to go on an adventure " + charName + "?");
+        System.out.println("Would you like to go on an adventure, " + charName + "?");
         String yesOrNo = scan.nextLine();
 
         if (yesOrNo.equalsIgnoreCase("y")) {
@@ -55,7 +55,7 @@ public class AdventureGame {
         }
      }
 
-     public static void battleSystem(int attack,int myHp, int potion,int potionInc, int atkPoints, int betsyHp ){
+     public static void battleSystem(int heroAtk,int myHp, int potion,int potionInc, int atkPoints, int betsyHp ){
         Scanner scan = new Scanner(System.in);
 //
          System.out.println("What would you like to do?\n" +
@@ -65,24 +65,40 @@ public class AdventureGame {
          String playerOption = scan.nextLine();
 
          while(betsyHp > 0){
+//             if (myHp <= 0) {
+//                 System.out.println("You have died...");
+//             }
              if(playerOption.equalsIgnoreCase("1")){
-                 betsyHp = betsyHp - attack;
-                 System.out.println("You did " + atkPoints + " damage!, Bestsy Health is at " + betsyHp +"\n");
-                 battleSystem(attack,myHp,potion,potionInc,atkPoints,betsyHp);
+                 betsyHp = betsyHp - heroAtk;
+                 System.out.println("You did " + heroAtk + " damage!, Bestsy Health is at " + betsyHp +"\n");
 
+                 System.out.println("Betsy went for the jugular!");
+                 myHp = myHp - atkPoints;
+                 System.out.println("Betsy did " + atkPoints + " damage! Your health is at " + myHp + ".\n");
+                 System.out.println(" \n");
+                 battleSystem(heroAtk,myHp,potion,potionInc,atkPoints,betsyHp);
              } else if(playerOption.equalsIgnoreCase("2")){
                  potion = potion - 1;
-                 System.out.println("You drank a potion and gained" + potionInc + " health , you have " + potion + "left\n");
+                 System.out.println("You drank a potion and gained " + potionInc + " health , you have " + potion + "left\n");
                  myHp = myHp + potionInc;
                  System.out.println("Hero HP is at " + myHp);
-                 battleSystem(attack,myHp,potion,potionInc,atkPoints,betsyHp);
+
+                 System.out.println("Betsy swiped at your head!");
+                 myHp = myHp - atkPoints;
+                 System.out.println("Betsy did " + atkPoints + " damage! Your health is at " + myHp + ".\n");
+                 System.out.println(" \n");
+                 battleSystem(heroAtk,myHp,potion,potionInc,atkPoints,betsyHp);
              } else if(playerOption.equalsIgnoreCase("3")){
                  System.out.println("You can't run!\n");
-                 battleSystem(attack,myHp,potion,potionInc,atkPoints,betsyHp);
+                 System.out.println("Betsy bit you while your back was turned!");
+                 myHp = myHp - atkPoints;
+                 System.out.println("Betsy did " + atkPoints + " damage! Your health is at " + myHp + ".");
+                 System.out.println(" \n");
+                 battleSystem(heroAtk,myHp,potion,potionInc,atkPoints,betsyHp);
              } else{
                  System.out.println("Not a valid response try again\n");
-                 battleSystem(attack,myHp,potion,potionInc,atkPoints,betsyHp);
-             }
+                 battleSystem(heroAtk,myHp,potion,potionInc,atkPoints,betsyHp);
+             } break;
 
          }
 
