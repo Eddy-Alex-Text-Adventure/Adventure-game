@@ -21,18 +21,19 @@ public class CurrentWorkingCodeForAdventureGame {
                     "                                                                                                                                                                                            ");
             Scanner scan = new Scanner(System.in);
             String charName = scan.nextLine();
-            System.out.println("Would you like to go on an adventure " + charName + "?");
+            System.out.println("Would you like to go on an adventure, " + charName + "?");
             String yesOrNo = scan.nextLine();
 
             if (yesOrNo.equalsIgnoreCase("y")) {
                 System.out.println("Awesome sauce! Here is your first challenge!");
                 //entering betsy stats
-                System.out.println("Betsy the Spider\n");
+                String monster1 = "Betsy the Spider";
+                System.out.println(monster1 + ".\n");
                 int attackPoints = 8;
                 int betsyHp = 50;
-                System.out.println("Betsy's attack is " + attackPoints + ".\n");
-                System.out.println("Betsy's Hitpoints are " + betsyHp + ".\n");
-                System.out.println("Betsy the Spider: Your mother was a hamster and " +
+                System.out.println(monster1 + "'s attack is " + attackPoints + ".\n");
+                System.out.println(monster1 + "'s Hitpoints are " + betsyHp + ".\n");
+                System.out.println(monster1 + ": Your mother was a hamster and " +
                         "your father smelt of elderberries!\n");
                 System.out.println("Prepare for Battle!!!");
 
@@ -44,12 +45,11 @@ public class CurrentWorkingCodeForAdventureGame {
                         + heroAtk + " damage! BOOYAH!");
                 System.out.println("You have " + potions + " potions\n");
                 battleSystem(heroAtk, heroHp, potions, potionIncrease, attackPoints, betsyHp);
-                System.out.println("Would you like to play again?");
-                System.out.println("Would you like to play again?");
+                System.out.println(monster1 + "'s hitpoints have reached 0.");
+                System.out.println("You have defeated " + monster1 + ".");
 
-
-
-
+//                System.out.println("Would you like to play again?");
+//                System.out.println("Would you like to take on the next challenger?");
 
 
             } else {
@@ -59,7 +59,7 @@ public class CurrentWorkingCodeForAdventureGame {
 
         public static void battleSystem(int attack,int myHp, int potion,int potionInc, int atkPoints, int betsyHp ){
             Scanner scan = new Scanner(System.in);
-//
+            String monster1 = "Betsy the Spider";
             System.out.println("What would you like to do?\n" +
                     "1.Hit him with the stick\n" +
                     "2.Drink the magic Elixir\n" +
@@ -68,8 +68,11 @@ public class CurrentWorkingCodeForAdventureGame {
 
             while(betsyHp > 0){
                 if(playerOption.equalsIgnoreCase("1")){
+                    System.out.println("You did " + attack + " damage!, " + monster1 + "'s health is at " + betsyHp +"\n");
                     betsyHp = betsyHp - attack;
-                    System.out.println("You did " + atkPoints + " damage!, Bestsy Health is at " + betsyHp +"\n");
+                    if (betsyHp < 0) {
+                        System.out.println(monster1 + " has been violently beaten to death with a stick.");
+                    }
                     battleSystem(attack,myHp,potion,potionInc,atkPoints,betsyHp);
 
                 } else if(playerOption.equalsIgnoreCase("2")){
@@ -84,12 +87,8 @@ public class CurrentWorkingCodeForAdventureGame {
                 } else{
                     System.out.println("Not a valid response try again\n");
                     battleSystem(attack,myHp,potion,potionInc,atkPoints,betsyHp);
-                }
-
+                } break;
             }
-
         }
-
-
     }
 
